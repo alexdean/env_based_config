@@ -30,3 +30,6 @@ to use the default (Rails-specific) env method, and an exception will be raised.
     end
     set_configuration( "#{Rails.root}/config/some_config.yml" )
   end
+
+Build your own gem by cloning this repo and running
+  rake package
