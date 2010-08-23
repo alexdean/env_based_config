@@ -1,0 +1,32 @@
+EnvBasedConfig is a simple way to add your own environment-based configuration, along the same lines as Rails' config/database.yml.
+
+Your configuration class looks like this:
+  class SomeConfig < EnvBasedConfig
+    set_configuration( "#{Rails.root}/config/some_config.yml" )
+  end
+
+The configuration file can have any contents.  The top level identifiers should match the various environments your
+application will run in.
+
+  development:
+    key_a: development A
+    key_b: development B
+  testing:
+    key_a: testing A
+    key_b: testing B
+  production:
+    key_a: production A
+    key_b: production B
+
+A call to 'SomeConfig.key_a' will return the correct value for the current environment ('development A', 'testing A', or 'production A').
+
+I've only used EnvBasedConfig in Rails projects, but it should work just fine in other contexts.  You'll just need to provide
+a different implementation of the env method.  Override env before calling set_configuration, or set_configuration will try
+to use the default (Rails-specific) env method, and an exception will be raised.
+
+  class SomeConfig < EnvBasedConfig
+    def env
+      ENV_NAME
+    end
+    set_configuration( "#{Rails.root}/config/some_config.yml" )
+  end
