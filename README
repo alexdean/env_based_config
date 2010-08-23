@@ -26,7 +26,7 @@ to use the default (Rails-specific) env method, and an exception will be raised.
 
   class SomeConfig < EnvBasedConfig
     def env
-      ENV_NAME
+      # your logic for selecting the correct environment here
     end
     set_configuration( "#{Rails.root}/config/some_config.yml" )
   end
