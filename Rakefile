@@ -12,7 +12,7 @@ Rake::Task['test'].comment = "Run the unit tests"
 
 spec = Gem::Specification.new do |s|
   s.name              = "env_based_config"
-  s.version           = "0.0.1"
+  s.version           = "0.0.2"
   s.author            = "Alex Dean"
   s.email             = "alex at crackpot dot org"
   s.homepage          = "http://github.com/alex_dean/env_based_config"
