@@ -18,7 +18,7 @@ class EnvBasedConfig
     end
     
     def env
-      Rails.configuration.environment
+      Rails.env rescue Rails.configuration.environment
     end
     
     def method_missing( sym, *args, &block )
